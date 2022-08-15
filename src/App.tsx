@@ -1,8 +1,29 @@
 import React from 'react'
 import style from './app.scss'
+import { Route, Routes } from 'react-router-dom'
+import routes, { route } from '@/router'
+
+/**
+ * 生成路由
+ * @param route
+ */
+function generateRoute(route: route) {
+  if (route.children) {
+    return (
+      <Route key={route.path} path={route.path} element={route.component}>
+        {route.children.map(generateRoute)}
+      </Route>
+    )
+  }
+  return <Route key={route.path} path={route.path} element={route.component} />
+}
 
 const App: React.FC = () => {
-  return <div className={style.app}>App</div>
+  return (
+    <div>
+      <Routes>{routes.map(generateRoute)}</Routes>
+    </div>
+  )
 }
 
 export default App

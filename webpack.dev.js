@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
+const WebpackBar = require('webpackbar')
 // 因为后续要配sass和less也需要使用到这套规则，所以这里抽离出来
 const getCssLoaders = (isModules) => [
   MiniCssExtractPlugin.loader,
@@ -43,12 +43,18 @@ module.exports = {
     filename: '[name].[fullhash:8].js',
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      components: path.resolve(__dirname, './src/components'),
+      utils: path.resolve(__dirname, './src/utils'),
+    },
     extensions: ['.tsx', '.ts', '.js', '.json'],
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx|js|jsx)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
@@ -96,6 +102,7 @@ module.exports = {
   },
   devServer: {
     open: true,
+    historyApiFallback: true,
     port: '3000',
   },
   plugins: [
@@ -106,5 +113,6 @@ module.exports = {
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].chunk.css',
     }),
+    new WebpackBar(),
   ],
 }
