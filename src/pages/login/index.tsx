@@ -1,14 +1,17 @@
 import React from 'react'
 import style from './index.scss'
 import { Button, Form, Input } from 'antd'
-import { login } from '@/api/user'
+import { login, LoginResponse } from '@/api/user'
 import { useNavigate } from 'react-router-dom'
+import { setToken } from 'utils/auth'
+import { AxiosResponse } from 'axios'
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
   const onFinish = (values: any) => {
-    console.log('Success:', values)
-    login(values).then((res) => {
+    login(values).then((res: AxiosResponse<BaseResponse<LoginResponse>, any>) => {
+      console.log(res)
+      setToken(res.data.data.token)
       navigate('/', { replace: true })
     })
   }

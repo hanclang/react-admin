@@ -1,5 +1,8 @@
 import request from '@/utils/request'
 
+export type LoginResponse = {
+    token: string
+}
 export function login(data: { username: string; password: string }) {
   return request({
     url: 'user/login',
