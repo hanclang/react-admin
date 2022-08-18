@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { Layout } from 'antd'
 import { getToken } from 'utils/auth'
+import style from './index.scss'
+import { Sider, Header, AppMain } from './components'
+import { CollapsedContext } from './context'
 
-const Layout: React.FC = () => {
+const LayoutPage: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false)
   const token = getToken()
   const location = useLocation()
 
@@ -11,10 +16,16 @@ const Layout: React.FC = () => {
   }
 
   return (
-    <div>
-      <h1>layout</h1>
-      <Outlet />
-    </div>
+    <CollapsedContext.Provider value={{ collapsed, setCollapsed }}>
+      <Layout>
+        <Sider />
+        <Layout className={style.siteLayout} style={{marginLeft: collapsed ? 80 : 200}}>
+          <Header />
+          <AppMain />
+        </Layout>
+      </Layout>
+    </CollapsedContext.Provider>
   )
 }
-export default Layout
+
+export default LayoutPage

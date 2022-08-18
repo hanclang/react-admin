@@ -37,6 +37,7 @@ const getCssLoaders = (isModules) => [
 module.exports = {
   mode: 'development',
   target: 'web',
+  devtool: 'source-map', //配置的sourceMap
   entry: path.resolve(__dirname, './src/main.tsx'),
   output: {
     path: path.resolve(__dirname, './dist'),
