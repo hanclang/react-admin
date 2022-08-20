@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { Layout } from 'antd'
 import style from "../index.scss";
 

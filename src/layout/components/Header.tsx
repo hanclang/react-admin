@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import style from '../index.scss'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import { Layout, Menu } from 'antd'
+import { Layout } from 'antd'
 import { CollapsedContext } from '../context'
 
 const { Header } = Layout

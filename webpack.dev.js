@@ -40,6 +40,7 @@ module.exports = {
   devtool: 'source-map', //配置的sourceMap
   entry: path.resolve(__dirname, './src/main.tsx'),
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, './dist'),
     filename: '[name].[fullhash:8].js',
   },
