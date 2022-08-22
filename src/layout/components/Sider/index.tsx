@@ -8,22 +8,25 @@ import { Link } from 'react-router-dom'
 const { Sider } = Layout
 type MenuItem = Required<MenuProps>['items'][number]
 
-function getItem(routes: route[], menuItems: MenuItem[] = []): MenuItem[] {
+function getItem(routes: route[], menuItems: MenuItem[] = [], parentPath = '/'): MenuItem[] {
   for (let i = 0; i < routes.length; i++) {
     const route = routes[i]
+    const linkPath =
+      parentPath.slice(0, parentPath.lastIndexOf('/') === parentPath.length - 1 ? parentPath.length - 1 : parentPath.length) + '/' + route.path.slice(route.path.indexOf('/') === 0 ? 1 : 0)
+
     if (!route.hidden) {
       const menuItem = {
         key: route.path,
         icon: route?.icon,
-        label: route.children ? route.name : <Link to={route.path}>{route.name}</Link>,
+        label: route.children ? route.name : <Link to={linkPath}>{route.name}</Link>,
       }
       if (route.children) {
         ;(menuItem as any).children = []
-        ;(menuItem as any).children = getItem(route.children, (menuItem as any).children)
+        ;(menuItem as any).children = getItem(route.children, (menuItem as any).children, linkPath)
       }
       menuItems.push(menuItem)
     } else if (route.hidden && route.children) {
-      getItem(route.children, menuItems)
+      getItem(route.children, menuItems, linkPath)
     }
   }
   return menuItems
