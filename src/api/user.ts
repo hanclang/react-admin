@@ -1,8 +1,9 @@
 import request from '@/utils/request'
 
 export type LoginResponse = {
-    token: string
+  token: string
 }
+
 export function login(data: { username: string; password: string }) {
   return request({
     url: 'user/login',
@@ -11,11 +12,18 @@ export function login(data: { username: string; password: string }) {
   })
 }
 
-export function getInfo(token: string) {
+export type UserInfoResponse = {
+  roles: string[]
+  introduction: string
+  avatar: string
+  name: string
+}
+
+export function getUserInfo(data: { token: string }) {
   return request({
     url: 'user/info',
-    method: 'get',
-    params: { token },
+    method: 'post',
+    data,
   })
 }
 

@@ -1,19 +1,24 @@
 import React from 'react'
 import style from './index.scss'
 import { Button, Form, Input } from 'antd'
-import { login, LoginResponse } from '@/api/user'
+import { getUserInfo, login, LoginResponse, UserInfoResponse } from '@/api/user'
 import { useNavigate } from 'react-router-dom'
 import { setToken } from 'utils/auth'
 import { AxiosResponse } from 'axios'
+import { fetchUsers } from '@/models/userSlice'
+import { useAppDispatch } from '@/models'
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
-  const onFinish = (values: any) => {
-    login(values).then((res: AxiosResponse<BaseResponse<LoginResponse>, any>) => {
-      console.log(res)
-      setToken(res.data.data.token)
-      navigate('/', { replace: true })
-    })
+  const dispatch = useAppDispatch()
+  const onFinish = async (values: any) => {
+    // TODO: 登录放在model里处理
+    const loginRes: AxiosResponse<BaseResponse<LoginResponse>, any> = await login(values)
+    const token = loginRes.data.data.token
+    const resultAction = await dispatch(fetchUsers({ token }))
+    // const infoRes: AxiosResponse<BaseResponse<UserInfoResponse>, any> = await getUserInfo({ token })
+    setToken(token)
+    navigate('/', { replace: true })
   }
 
   return (

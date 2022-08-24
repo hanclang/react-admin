@@ -1,0 +1,22 @@
+.header {
+  height: 50px !important;
+  background: #fff !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.overlay {
+  min-width: 150px !important;
+}
+
+.name {
+  cursor: pointer;
+  padding: 0 10px;
+
+  &:hover {
+    background: rgba(0, 0, 0, .025);
+  }
+}

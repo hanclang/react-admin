@@ -9,17 +9,17 @@ const tokens: Record<string, object> = {
   },
 }
 
-const users = {
+const users: Record<string, object> = {
   'admin-token': {
     roles: ['admin'],
     introduction: 'I am a super administrator',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     name: 'Super Admin',
   },
   'editor-token': {
     roles: ['editor'],
     introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     name: 'Normal Editor',
   },
 }
@@ -38,5 +38,23 @@ Mock.mock(/user\/login/, 'post', function (config: any) {
   return {
     code: 200,
     data: token,
+  }
+})
+
+Mock.mock(/user\/info/, 'post', function (config: any) {
+  const { token }: { token: string } = JSON.parse(config.body)
+  const info = users[token]
+
+  // mock error
+  if (!info) {
+    return {
+      code: 50008,
+      msg: 'Login failed, unable to get user details.',
+    }
+  }
+
+  return {
+    code: 200,
+    data: info,
   }
 })

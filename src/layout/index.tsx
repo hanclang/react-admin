@@ -19,7 +19,7 @@ const LayoutPage: React.FC = () => {
     <CollapsedContext.Provider value={{ collapsed, setCollapsed }}>
       <Layout>
         <Sider />
-        <Layout className={style.siteLayout} style={{marginLeft: collapsed ? 80 : 200}}>
+        <Layout style={{marginLeft: collapsed ? 80 : 200}}>
           <Header />
           <AppMain />
         </Layout>
