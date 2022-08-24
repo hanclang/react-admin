@@ -11,6 +11,9 @@ type MenuItem = Required<MenuProps>['items'][number]
 function getItem(routes: route[], menuItems: MenuItem[] = [], parentPath = '/'): MenuItem[] {
   for (let i = 0; i < routes.length; i++) {
     const route = routes[i]
+    if (route.index) {
+      continue
+    }
     const linkPath =
       parentPath.slice(0, parentPath.lastIndexOf('/') === parentPath.length - 1 ? parentPath.length - 1 : parentPath.length) + '/' + route.path.slice(route.path.indexOf('/') === 0 ? 1 : 0)
 

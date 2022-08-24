@@ -15,6 +15,10 @@ function generateRoute(route: route) {
       </Route>
     )
   }
+  if (route.index) {
+    // TODO:
+    return <Route key="123456" index element={route.component} />
+  }
   return <Route key={route.path} path={route.path} element={route.component} />
 }
 

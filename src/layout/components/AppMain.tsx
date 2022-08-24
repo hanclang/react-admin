@@ -9,7 +9,6 @@ const AppMain: React.FC = () => {
       className={style.siteLayoutBackground}
       style={{
           margin: '24px 16px',
-          padding: 24,
           minHeight: 280,
       }}
   >
