@@ -41,6 +41,7 @@
     "webpackbar": "^5.0.2"
   },
   "dependencies": {
+    "@ant-design/charts": "^1.4.2",
     "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.8.5",
     "antd": "^4.22.5",

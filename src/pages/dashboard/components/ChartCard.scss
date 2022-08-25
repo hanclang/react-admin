@@ -1,0 +1,50 @@
+.chartCard {
+  .chartTop {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    .metaWrap {
+      .meta {
+        height: 22px;
+        color: rgba(0,0,0,.45);
+        font-size: 14px;
+        line-height: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .action {
+          cursor: pointer;
+        }
+      }
+    }
+    .total {
+      height: 38px;
+      margin-top: 4px;
+      margin-bottom: 0;
+      overflow: hidden;
+      color: rgba(0,0,0,.85);
+      font-size: 30px;
+      line-height: 38px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      word-break: break-all;
+    }
+  }
+  .content {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+    height: 46px;
+    .contentFixed {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+  .footer {
+    margin-top: 8px;
+    padding-top: 9px;
+    border-top: 1px solid #f0f0f0;
+  }
+}
