@@ -1,4 +1,4 @@
-import style from '../../index.scss'
+import style from './index.scss'
 import { Layout, Menu, MenuProps } from 'antd'
 import React, { useContext } from 'react'
 import { CollapsedContext } from '../../context'
@@ -38,22 +38,13 @@ function getItem(routes: route[], menuItems: MenuItem[] = [], parentPath = '/'):
 const SiderComponent: React.FC = () => {
   const { collapsed } = useContext(CollapsedContext)
   return (
-    <Sider
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        bottom: 0,
-      }}
-      trigger={null}
-      collapsible
-      collapsed={collapsed}
-    >
-      <div className={style.logo} />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={getItem(routes)} />
-    </Sider>
+    <>
+      <div className={[style.transition, !collapsed ? style.placeholder : style.changePlaceholder].join(' ')} />
+      <Sider className={style.sider} trigger={null} collapsible collapsed={collapsed}>
+        <div className={style.logo} />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={getItem(routes)} />
+      </Sider>
+    </>
   )
 }
 

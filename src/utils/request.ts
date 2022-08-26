@@ -1,4 +1,4 @@
-import axios, {AxiosInstance, AxiosResponse} from 'axios'
+import axios, { AxiosInstance, AxiosResponse } from 'axios'
 import { message } from 'antd'
 
 const request: AxiosInstance = axios.create({
@@ -15,16 +15,26 @@ request.interceptors.request.use(
   }
 )
 
-request.interceptors.response.use((response: AxiosResponse<BaseResponse, any>) => {
-  if (response.status !== 200) {
+request.interceptors.response.use(
+  (response: AxiosResponse<BaseResponse, any>) => {
+    if (response.status !== 200) {
+      message.error('服务器开小差了')
+      return Promise.reject(new Error('Error'))
+    }
+    const res = response.data
+    if (res.code !== 200) {
+      message.error(res.msg || 'Error')
+      return Promise.reject(new Error(res.msg || 'Error'))
+    }
+    return response.data
+  },
+  (error) => {
     message.error('服务器开小差了')
-    return Promise.reject(new Error('Error'))
+    return Promise.reject({
+      code: 500,
+      msg: '服务器开小差了',
+      data: {},
+    })
   }
-  const res = response.data
-  if (res.code !== 200) {
-    message.error(res.msg || 'Error')
-    return Promise.reject(new Error(res.msg || 'Error'))
-  }
-  return response.data
-})
+)
 export default request

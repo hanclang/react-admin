@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Row } from 'antd'
+import {Button, Card, Col, Row, Tabs} from 'antd'
 import { TrendItem, Area, Column, ChartCard, Bullet, Field } from './components'
-
+import style from './index.scss'
 import { getChartData } from '@/api/dashboard'
+
+const { TabPane } = Tabs
+const operations = <Button>Extra Action</Button>;
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<any>({})
@@ -46,6 +49,21 @@ const Dashboard: React.FC = () => {
           </ChartCard>
         </Col>
       </Row>
+        <Card>
+            <div className={style.salesCard}>
+                <Tabs tabBarExtraContent={operations}>
+                    <TabPane tab="销售额" key="1">
+                        Content of Tab Pane 1
+                    </TabPane>
+                    <TabPane tab="访问量" key="2">
+                        Content of Tab Pane 2
+                    </TabPane>
+                    <TabPane tab="Tab 3" key="3">
+                        Content of Tab Pane 3
+                    </TabPane>
+                </Tabs>
+            </div>
+        </Card>
     </div>
   )
 }
