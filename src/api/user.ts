@@ -4,7 +4,7 @@ export type LoginResponse = {
   token: string
 }
 
-export function login(data: { username: string; password: string }) {
+export function login(data: { username: string; password: string }): Promise<BaseResponse<LoginResponse>> {
   return request({
     url: 'user/login',
     method: 'post',
@@ -19,7 +19,7 @@ export type UserInfoResponse = {
   name: string
 }
 
-export function getUserInfo(data: { token: string }) {
+export function getUserInfo(data: { token: string }): Promise<BaseResponse<UserInfoResponse>> {
   return request({
     url: 'user/info',
     method: 'post',

@@ -23,14 +23,14 @@ const initialState: InitialState = {
 
 // 获取用户信息
 export const fetchUsers = createAsyncThunk('user/getUserInfo', async (data: { token: string }) => {
-  const res: AxiosResponse<BaseResponse<UserInfoResponse>, any> = await getUserInfo(data)
-  return res.data.data
+  const res = await getUserInfo(data)
+  return res.data
 })
 
 // 用户登录
 export const login = createAsyncThunk('user/login', async (data: { username: string; password: string }, action) => {
-  const res: AxiosResponse<BaseResponse<LoginResponse>, any> = await userLogin(data)
-  const token: string = res.data.data.token
+  const res = await userLogin(data)
+  const token: string = res.data.token
   const userAction = await action.dispatch(fetchUsers({ token }))
   return {
     token,

@@ -8,7 +8,7 @@ const Dashboard: React.FC = () => {
   const [data, setData] = useState<any>({})
   useEffect(() => {
     getChartData().then((res) => {
-      const data = res.data.data
+      const data = res.data
       setData(data)
     })
   }, [])

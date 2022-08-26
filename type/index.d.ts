@@ -1,5 +1,5 @@
-interface BaseResponse<T> {
-  code: string
+interface BaseResponse<T = any> {
+  code: number
   msg?: string
   data: T
 }
