@@ -1,0 +1,19 @@
+.salesExtraWrap {
+  .salesExtra {
+    display: inline-block;
+    margin-right: 24px;
+
+    a {
+      margin-left: 24px;
+      color: rgba(0, 0, 0, .85);
+
+      &.currentDate {
+        color: #1890ff;
+      }
+    }
+  }
+}
+
+.salesBar {
+  padding: 0 0 0px 24px;
+}
