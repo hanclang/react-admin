@@ -1,5 +1,6 @@
-import React, {useCallback, useMemo} from 'react'
-import { Button, Card, Col, DatePicker, Row, Tabs } from 'antd'
+import React, {useCallback} from 'react'
+import { Card, Col, DatePicker, Row, Tabs } from 'antd'
+import dayjs from "dayjs";
 import style from './index.scss'
 import Line from '../Line'
 import SalesRank from './SalesRank'
@@ -16,7 +17,7 @@ const Sales: React.FC = () => {
         <a>本月</a>
         <a>本年</a>
       </div>
-      <RangePicker />
+      <RangePicker value={[dayjs(), dayjs()]} />
     </div>
   )
   const TabPaneItem = useCallback(
