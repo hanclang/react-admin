@@ -6,8 +6,8 @@ import style from "../index.scss";
 const { Content } = Layout
 const AppMain: React.FC = () => {
   return <Content
-      className={style.siteLayoutBackground}
       style={{
+          overflow: 'hidden',
           margin: '24px 16px',
           minHeight: 280,
       }}

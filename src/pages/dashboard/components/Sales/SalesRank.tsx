@@ -9,7 +9,7 @@ const SalesRank: React.FC = () => {
         {Array(7)
           .fill(0)
           .map((item, index: number) => (
-            <li>
+            <li key={index}>
               <span className={[style.rankingItemNumber, index + 1 <= 3 ? style.active : ''].join(' ')}>{index + 1}</span>
               <span className={style.rankingItemTitle}>工专路 {index + 1} 号店</span>
               <span>323,234</span>

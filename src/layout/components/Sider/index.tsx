@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import { CollapsedContext } from '../../context'
 import routes, { route } from '@/router'
 import { Link } from 'react-router-dom'
+import classNames from "classnames";
 
 const { Sider } = Layout
 type MenuItem = Required<MenuProps>['items'][number]
@@ -39,7 +40,7 @@ const SiderComponent: React.FC = () => {
   const { collapsed } = useContext(CollapsedContext)
   return (
     <>
-      <div className={[style.transition, !collapsed ? style.placeholder : style.changePlaceholder].join(' ')} />
+      <div className={classNames(style.transition, collapsed ? style.changePlaceholder : style.placeholder)} />
       <Sider className={style.sider} trigger={null} collapsible collapsed={collapsed}>
         <div className={style.logo} />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={getItem(routes)} />

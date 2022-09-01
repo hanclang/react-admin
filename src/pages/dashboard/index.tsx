@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {Button, Card, Col, DatePicker, Row, Tabs} from 'antd'
+import { Col, Row } from 'antd'
 import { TrendItem, Area, Column, ChartCard, Bullet, Field, Sales } from './components'
-import style from './index.scss'
 import { getChartData } from '@/api/dashboard'
 
 const Dashboard: React.FC = () => {
@@ -14,7 +13,7 @@ const Dashboard: React.FC = () => {
   }, [])
   return (
     <div>
-      <Row gutter={24} style={{marginBottom: 24}}>
+      <Row gutter={24} style={{ marginBottom: 24 }}>
         <Col span={6}>
           <ChartCard meta="总销售额" total="¥ 126,560" footer={<Field label="日销售额" value="￥12,423" />}>
             <TrendItem label="周同比" value="12%" styles={{ marginRight: 16 }} up />
@@ -46,7 +45,7 @@ const Dashboard: React.FC = () => {
           </ChartCard>
         </Col>
       </Row>
-        <Sales />
+      <Sales />
     </div>
   )
 }
