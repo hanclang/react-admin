@@ -1,14 +1,17 @@
+import React from 'react'
+import { DashboardOutlined, TableOutlined } from '@ant-design/icons'
+import { Navigate } from 'react-router-dom'
+
 import Login from '@/pages/login'
 import Layout from '../layout'
 import Dashboard from '@/pages/dashboard'
-import React from 'react'
 import NotFoundPage from '@/pages/404'
-import { DashboardOutlined } from '@ant-design/icons'
-import { Navigate } from 'react-router-dom'
+import TableList from '@/pages/TableList'
+import List from '@/pages/List'
 
 export type route = {
   path: string
-  component: React.ReactNode
+  component?: React.ReactNode
   children?: route[]
   icon?: React.ReactNode
   name?: string
@@ -38,14 +41,15 @@ const routes: route[] = [
         icon: <DashboardOutlined />,
       },
       {
-        path: '/example',
-        name: 'Example',
-        component: <Dashboard />,
+        path: '/list',
+        name: '列表页',
+        component: <List />,
+        icon: <TableOutlined />,
         children: [
           {
-            path: 'table',
-            name: 'Table',
-            component: <Dashboard />,
+            path: 'table-list',
+            name: '查询表格',
+            component: <TableList />,
           },
           {
             path: 'tree',

@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackBar = require('webpackbar')
@@ -39,6 +38,7 @@ const getCssLoaders = (isModules) => [
 
 module.exports = {
   mode: 'development',
+  // mode: 'production',
   target: 'web',
   devtool: 'source-map', //配置的sourceMap
   entry: path.resolve(__dirname, './src/main.tsx'),
