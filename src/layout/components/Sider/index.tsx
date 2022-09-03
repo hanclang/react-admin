@@ -1,10 +1,10 @@
 import style from './index.scss'
 import { Layout, Menu, MenuProps } from 'antd'
-import React, { useContext } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import { CollapsedContext } from '../../context'
 import routes, { route } from '@/router'
-import { Link } from 'react-router-dom'
-import classNames from "classnames";
+import { Link, useLocation } from 'react-router-dom'
+import classNames from 'classnames'
 
 const { Sider } = Layout
 type MenuItem = Required<MenuProps>['items'][number]
@@ -20,7 +20,7 @@ function getItem(routes: route[], menuItems: MenuItem[] = [], parentPath = '/'):
 
     if (!route.hidden) {
       const menuItem = {
-        key: route.path,
+        key: linkPath,
         icon: route?.icon,
         label: route.children ? route.name : <Link to={linkPath}>{route.name}</Link>,
       }
@@ -38,15 +38,31 @@ function getItem(routes: route[], menuItems: MenuItem[] = [], parentPath = '/'):
 
 const SiderComponent: React.FC = () => {
   const { collapsed } = useContext(CollapsedContext)
-  return (
-    <>
-      <div className={classNames(style.transition, collapsed ? style.changePlaceholder : style.placeholder)} />
-      <Sider className={style.sider} trigger={null} collapsible collapsed={collapsed}>
-        <div className={style.logo} />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={getItem(routes)} />
-      </Sider>
-    </>
+  let location = useLocation()
+  const openKeys = useMemo(() => {
+    const paths = location.pathname.split('/')
+    paths.shift()
+    const keys: string[] = []
+    for (let i = 0; i < paths.length; i++) {
+      const path = keys.slice(i - 1, i) || ''
+      keys.push(path + '/' + paths[i])
+    }
+    return keys
+  }, [])
+
+  const sider = useMemo(
+    () => (
+      <>
+        <div className={classNames(style.transition, collapsed ? style.changePlaceholder : style.placeholder)} />
+        <Sider className={style.sider} trigger={null} collapsible collapsed={collapsed}>
+          <div className={style.logo} />
+          <Menu defaultOpenKeys={openKeys} selectedKeys={[location.pathname]} theme="dark" mode="inline" items={getItem(routes)} />
+        </Sider>
+      </>
+    ),
+    [location.pathname, collapsed]
   )
+  return sider
 }
 
 export default SiderComponent
