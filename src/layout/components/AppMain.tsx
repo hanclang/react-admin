@@ -8,7 +8,7 @@ const AppMain: React.FC = () => {
   return <Content
       style={{
           overflow: 'hidden',
-          margin: '24px 16px',
+          marginTop: 50,
           minHeight: 280,
       }}
   >

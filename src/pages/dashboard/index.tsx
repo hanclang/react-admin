@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'antd'
 import { TrendItem, Area, Column, ChartCard, Bullet, Field, Sales } from './components'
 import { getChartData } from '@/api/dashboard'
+import style from './index.scss'
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<any>({})
@@ -12,7 +13,7 @@ const Dashboard: React.FC = () => {
     })
   }, [])
   return (
-    <div>
+    <div className={style.page}>
       <Row gutter={24} style={{ marginBottom: 24 }}>
         <Col span={6}>
           <ChartCard meta="总销售额" total="¥ 126,560" footer={<Field label="日销售额" value="￥12,423" />}>

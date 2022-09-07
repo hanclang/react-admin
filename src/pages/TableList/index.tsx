@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { Space, Table, Tag } from 'antd'
 import { fetchTableList, item } from '@/api/list'
 import Search from './components/Search'
+import style from "./index.scss";
 
 const TableList: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams({
@@ -83,7 +84,7 @@ const TableList: React.FC = () => {
   }
 
   return (
-    <>
+    <div className={style.page}>
       <Search
         onSearch={(values) => {
           const params = {
@@ -113,7 +114,7 @@ const TableList: React.FC = () => {
         columns={columns}
         dataSource={data.items}
       />
-    </>
+    </div>
   )
 }
 

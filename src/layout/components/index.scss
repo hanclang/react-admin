@@ -1,15 +1,23 @@
 .header {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
   height: 50px !important;
   background: #fff !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 16px !important;
+  padding-left: 0 !important;
   padding-right: 16px !important;
 }
 
 .overlay {
   min-width: 150px !important;
+}
+
+.trigger {
+  padding: 16px;
 }
 
 .name {
