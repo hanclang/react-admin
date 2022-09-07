@@ -31,11 +31,20 @@ for (let i = 0; i < count; i++) {
   )
 }
 Mock.mock(/list\/tableList/, 'post', function (config: { url: string }) {
-  const params: { pageNumber?: number; pageSize?: number } = queryString.parse(config.url.slice(config.url.indexOf('?'))) as any
-  const { pageNumber = 1, pageSize = 20 } = params
+  const params: { pageNumber?: number; pageSize?: number; name?: string; age?: string } = queryString.parse(config.url.slice(config.url.indexOf('?'))) as any
+  const { pageNumber = 1, pageSize = 20, name, age } = params
   let mockList = List.filter((item) => {
     if (item.tags.length === 0) item.tags = ['LOSER']
-    return true
+    if (name && age && item.name.includes(name) && item.age === Number(age)) {
+      return true
+    } else if (!age && name && item.name.includes(name)) {
+      return true
+    } else if (!name && age && item.age === Number(age)) {
+      return true
+    } else if (!name && !age) {
+      return true
+    }
+    return false
   })
 
   const pageList = mockList.filter((item, index) => index < pageSize * pageNumber && index >= pageSize * (pageNumber - 1))

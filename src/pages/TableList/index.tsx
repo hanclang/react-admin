@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Space, Table, Tag } from 'antd'
 import { fetchTableList, item } from '@/api/list'
+import Search from './components/Search'
 
 const TableList: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams({
@@ -74,7 +75,7 @@ const TableList: React.FC = () => {
   }, [])
 
   // 获取列表数据
-  function getTableList(params: { pageNumber?: number; pageSize?: number }) {
+  function getTableList(params: { pageNumber?: number; pageSize?: number; name?: string; age?: string }) {
     fetchTableList(params).then((res) => {
       setData(res.data)
       setSearchParams(params as any)
@@ -82,23 +83,37 @@ const TableList: React.FC = () => {
   }
 
   return (
-    <Table
-      onChange={(pagination) => {
-        const params = {
-          pageNumber: pagination.current,
-          pageSize: pagination.pageSize,
-        }
-        getTableList(params)
-      }}
-      pagination={{
-        total: data.total,
-        current: Number(searchParams.get('pageNumber')),
-        pageSize: Number(searchParams.get('pageSize')),
-      }}
-      rowKey="id"
-      columns={columns}
-      dataSource={data.items}
-    />
+    <>
+      <Search
+        onSearch={(values) => {
+          const params = {
+            pageNumber: Number(searchParams.get('pageNumber')),
+            pageSize: Number(searchParams.get('pageSize')),
+            ...values,
+          }
+          getTableList(params)
+        }}
+      />
+      <Table
+        onChange={(pagination) => {
+          const params = {
+            name: searchParams.get('name') || '',
+            age: searchParams.get('age') || '',
+            pageNumber: pagination.current,
+            pageSize: pagination.pageSize,
+          }
+          getTableList(params)
+        }}
+        pagination={{
+          total: data.total,
+          current: Number(searchParams.get('pageNumber')),
+          pageSize: Number(searchParams.get('pageSize')),
+        }}
+        rowKey="id"
+        columns={columns}
+        dataSource={data.items}
+      />
+    </>
   )
 }
 
