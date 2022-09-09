@@ -8,6 +8,7 @@ import Dashboard from '@/pages/dashboard'
 import NotFoundPage from '@/pages/404'
 import TableList from '@/pages/TableList'
 import List from '@/pages/List'
+import EditTable from '@/pages/EditTable'
 
 export type route = {
   path: string
@@ -16,7 +17,12 @@ export type route = {
   icon?: React.ReactNode
   name?: string
   hidden?: boolean // if set true, item will not show in the sidebar(default is false)
-  index?: boolean // if set true, item will not show in the sidebar(default is false)
+  /**
+   * if set true, item will not show in the sidebar(default is false)
+   *
+   * when visit http://localhost:3000 will navigate http://localhost:3000/dashboard
+   */
+  index?: boolean
 }
 const routes: route[] = [
   {
@@ -47,14 +53,19 @@ const routes: route[] = [
         icon: <TableOutlined />,
         children: [
           {
+            path: '',
+            index: true,
+            component: <Navigate to="/list/table-list" replace />,
+          },
+          {
             path: 'table-list',
             name: '查询表格',
             component: <TableList />,
           },
           {
-            path: 'tree',
-            name: 'Tree',
-            component: <Dashboard />,
+            path: 'edit-table',
+            name: 'Table 内编辑',
+            component: <EditTable />,
           },
         ],
       },
