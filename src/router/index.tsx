@@ -9,6 +9,7 @@ import NotFoundPage from '@/pages/404'
 import TableList from '@/pages/TableList'
 import List from '@/pages/List'
 import EditTable from '@/pages/EditTable'
+import Profile from '@/pages/profile'
 
 export type route = {
   path: string
@@ -68,6 +69,12 @@ const routes: route[] = [
             component: <EditTable />,
           },
         ],
+      },
+      {
+        path: 'profile',
+        hidden: true,
+        name: '个人中心',
+        component: <Profile />
       },
       {
         path: '*',

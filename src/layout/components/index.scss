@@ -1,3 +1,4 @@
+@import '~@/style/var.scss';
 .header {
   position: fixed;
   right: 0;
@@ -23,8 +24,12 @@
 .name {
   cursor: pointer;
   padding: 0 10px;
-
+  :global {
+    .ant-avatar {
+      box-shadow: $avatar-shadow;
+    }
+  }
   &:hover {
-    background: rgba(0, 0, 0, .025);
+    background: rgba(0, 0, 0, 0.025);
   }
 }

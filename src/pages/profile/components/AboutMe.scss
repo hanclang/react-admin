@@ -1,0 +1,28 @@
+@import '~@/style/var.scss';
+.userProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .nameBox {
+    padding-top: 10px;
+    text-align: center;
+    .name {
+      font-weight: 700;
+    }
+    .role {
+      padding-top: 10px;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+  :global {
+    .ant-avatar {
+      box-shadow: $avatar-shadow;
+    }
+  }
+}
+.info {
+  .skills {
+  }
+}

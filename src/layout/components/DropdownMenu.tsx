@@ -1,6 +1,7 @@
 import React from 'react'
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons'
 import { Menu } from 'antd'
+import { Link } from 'react-router-dom'
 
 interface DropdownMenuProps {
   logout: Function
@@ -12,7 +13,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = (props) => {
       items={[
         {
           key: '1',
-          label: <a>个人中心</a>,
+          label: <Link to="/profile">个人中心</Link>,
           icon: <UserOutlined />,
         },
         {
