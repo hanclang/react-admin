@@ -7,11 +7,9 @@ import { useAppDispatch } from '@/models'
 import style from './index.scss'
 
 const Login: React.FC = () => {
-  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const onFinish = async (values: any) => {
     await dispatch(login(values))
-    navigate('/', { replace: true })
   }
 
   return (
@@ -22,11 +20,11 @@ const Login: React.FC = () => {
           <Form.Item initialValue="admin" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
             <Input placeholder="账号" />
           </Form.Item>
-          <Form.Item initialValue='123456' name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
+          <Form.Item initialValue="admin123" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
             <Input.Password placeholder="密码" />
           </Form.Item>
           <Form.Item>
-            <Button htmlType="submit" block>
+            <Button type="primary" htmlType="submit" block>
               登录
             </Button>
           </Form.Item>

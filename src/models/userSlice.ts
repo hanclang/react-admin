@@ -58,10 +58,12 @@ export const userSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         const token = action.payload.token
-        state.token = token
-        state.user = action.payload.user
-        setToken(token)
-        history.replace('/')
+        if (token) {
+          state.token = token
+          state.user = action.payload.user
+          setToken(token)
+          history.replace('/')
+        }
       })
   },
 })

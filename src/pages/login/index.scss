@@ -35,38 +35,8 @@
     .ant-btn {
       height: 40px;
       border: none;
-      background: linear-gradient(-200deg, #91d5ff, #096dd9);
       color: #fff;
-      font-weight: bold;
       letter-spacing: 8px;
-      cursor: pointer;
-      /*动画过渡*/
-      transition: 0.3s;
-
-      &:hover, &:active, &:focus {
-        background: linear-gradient(-200deg, #096dd9, #91d5ff);
-        background-position-x: -280px;
-      }
-
-      span {
-        color: #fff;
-        margin-right: 0 !important;
-      }
     }
-  }
-
-
-  span {
-    &:first-child {
-      margin-right: 20px;
-    }
-
-    color: #b1b1b1;
-    font-size: 14px;
-  }
-
-  a {
-    color: plum;
-    text-decoration: none;
   }
 }

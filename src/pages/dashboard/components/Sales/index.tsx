@@ -7,7 +7,6 @@ import style from './index.scss'
 import Line from '../Line'
 import SalesRank from './SalesRank'
 
-const { TabPane } = Tabs
 const { RangePicker } = DatePicker
 
 const Sales: React.FC = () => {
@@ -94,14 +93,13 @@ const Sales: React.FC = () => {
   return (
     <Card>
       <div className={style.salesCard}>
-        <Tabs tabBarExtraContent={operations}>
-          <TabPane tab="销售额" key="1">
-            <TabPaneItem />
-          </TabPane>
-          <TabPane tab="访问量" key="2">
-            <TabPaneItem />
-          </TabPane>
-        </Tabs>
+        <Tabs
+          items={[
+            { key: '1', label: '销售额', children: <TabPaneItem /> },
+            { key: '2', label: '访问量', children: <TabPaneItem /> },
+          ]}
+          tabBarExtraContent={operations}
+        />
       </div>
     </Card>
   )
