@@ -3,6 +3,7 @@ import { Col, Row } from 'antd'
 import { TrendItem, Area, Column, ChartCard, Bullet, Field, Sales } from './components'
 import { getChartData } from '@/api/dashboard'
 import style from './index.scss'
+import AboutMe from '../profile/components/AboutMe'
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<any>({})
@@ -13,8 +14,8 @@ const Dashboard: React.FC = () => {
     })
   }, [])
   return (
-    <div className={style.page}>
-      <Row gutter={24} style={{ marginBottom: 24 }}>
+    <div className="page">
+      <Row gutter={24} className={style.rowItem}>
         <Col span={6}>
           <ChartCard meta="总销售额" total="¥ 126,560" footer={<Field label="日销售额" value="￥12,423" />}>
             <TrendItem label="周同比" value="12%" styles={{ marginRight: 16 }} up />
@@ -46,7 +47,17 @@ const Dashboard: React.FC = () => {
           </ChartCard>
         </Col>
       </Row>
-      <Sales />
+      <Row className={style.rowItem}>
+        <Col span={24}>
+          <Sales />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={18}></Col>
+        <Col span={6}>
+          <AboutMe inDashboard />
+        </Col>
+      </Row>
     </div>
   )
 }

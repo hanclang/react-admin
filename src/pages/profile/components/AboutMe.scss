@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
   .nameBox {
     padding-top: 10px;
     text-align: center;
@@ -15,6 +16,12 @@
       font-weight: 400;
       font-size: 14px;
     }
+  }
+  .avatar {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    background: #fff;
   }
   :global {
     .ant-avatar {
