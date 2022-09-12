@@ -2,20 +2,21 @@ import React from 'react'
 import style from './ChartCard.scss'
 import { Card, Tooltip } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
-import TrendItem from './TrendItem'
-import Field from './Field'
+import classNames from 'classnames'
 
 interface ChartCardProps {
   children?: React.ReactNode
   footer?: React.ReactNode
+  totalExtra?: React.ReactNode
+  className?: string
   total: string
   meta: string
 }
 
 const ChartCard: React.FC<ChartCardProps> = (props) => {
-  const { children, total, meta, footer } = props
+  const { children, total, meta, footer, totalExtra, className = '' } = props
   return (
-    <Card bodyStyle={{ padding: '20px 24px 8px' }}>
+    <Card className={classNames(className)} bodyStyle={{ padding: '20px 24px 8px' }}>
       <div className={style.chartCard}>
         <div className={style.chartTop}>
           <div className={style.metaWrap}>
@@ -29,6 +30,7 @@ const ChartCard: React.FC<ChartCardProps> = (props) => {
             </div>
             <div className={style.total}>
               <span>{total}</span>
+              <span>{totalExtra}</span>
             </div>
           </div>
         </div>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Row } from 'antd'
+import { Card, Dropdown, Menu, Col, Row, Table } from 'antd'
 import { TrendItem, Area, Column, ChartCard, Bullet, Field, Sales } from './components'
 import { getChartData } from '@/api/dashboard'
 import style from './index.scss'
 import AboutMe from '../profile/components/AboutMe'
+import { EllipsisOutlined } from '@ant-design/icons'
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<any>({})
@@ -52,8 +53,58 @@ const Dashboard: React.FC = () => {
           <Sales />
         </Col>
       </Row>
-      <Row>
-        <Col span={18}></Col>
+      <Row gutter={24}>
+        <Col span={18}>
+          <Card
+            extra={
+              <Dropdown
+                placement="bottomRight"
+                overlay={
+                  <Menu
+                    items={[
+                      {
+                        key: '1',
+                        label: '操作一',
+                      },
+                      {
+                        key: '1',
+                        label: '操作二',
+                      },
+                    ]}
+                  />
+                }
+                overlayClassName={style.overlay}
+              >
+                <EllipsisOutlined />
+              </Dropdown>
+            }
+            title="线上热门搜索"
+          >
+            <Row gutter={24}>
+              <Col span={12}>
+                <ChartCard totalExtra={<TrendItem label="" value="5%" down />} className={style.cardWithoutBorder} meta="搜索用户数" total="12,321">
+                  <Area data={data.visitData} />
+                </ChartCard>
+              </Col>
+              <Col span={12}>
+                <ChartCard totalExtra={<TrendItem label="" value="18%" up />} className={style.cardWithoutBorder} meta="人均搜索次数" total="2.7">
+                  <Area data={data.visitData} />
+                </ChartCard>
+              </Col>
+            </Row>
+
+            <Table
+              columns={[
+                { dataIndex: 'index', title: '排名' },
+                { dataIndex: 'keyword', title: '搜索关键词' },
+                { dataIndex: 'count', title: '用户数' },
+                { dataIndex: 'range', title: '周涨幅' },
+              ]}
+              dataSource={data.searchData}
+              pagination={{ pageSize: 5 }}
+            />
+          </Card>
+        </Col>
         <Col span={6}>
           <AboutMe inDashboard />
         </Col>
