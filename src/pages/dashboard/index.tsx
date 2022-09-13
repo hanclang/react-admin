@@ -94,6 +94,7 @@ const Dashboard: React.FC = () => {
             </Row>
 
             <Table
+              rowKey="index"
               columns={[
                 { dataIndex: 'index', title: '排名' },
                 { dataIndex: 'keyword', title: '搜索关键词' },

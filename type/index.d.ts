@@ -12,3 +12,8 @@ declare module 'headroom.js' {
     }
     export = Headroom
 }
+
+declare const process = any
+declare function require(src: string): any {
+
+}

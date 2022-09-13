@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBar = require('webpackbar')
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 
@@ -135,6 +136,7 @@ module.exports = {
     open: true,
     historyApiFallback: true,
     port: '3000',
+    setupMiddlewares: require('./mock/mock-server.js'),
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -146,5 +148,6 @@ module.exports = {
     }),
     new AntdDayjsWebpackPlugin(),
     new WebpackBar(),
+    new CleanWebpackPlugin(),
   ],
 }
