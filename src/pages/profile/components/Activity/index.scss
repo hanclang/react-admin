@@ -1,0 +1,38 @@
+@import '~@/style/var.scss';
+.post {
+  .userBlock {
+    .avatar {
+      box-shadow: $avatar-shadow;
+      float: left;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .username, .description {
+      display: block;
+      margin-left: 50px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1;
+      padding: 3px 0;
+    }
+    .username {
+      font-size: 16px;
+      color: #000;
+    }
+  }
+  .content {
+    padding: 16px 0;
+  }
+  .action {
+    .actionItem {
+      cursor: pointer;
+      &:hover {
+        color: #999;
+      }
+      span {
+        margin-right: 6px;
+      }
+    }
+  }
+}

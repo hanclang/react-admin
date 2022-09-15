@@ -1,11 +1,12 @@
 import React from 'react'
 import { Avatar, Card, Progress } from 'antd'
-import { FileSearchOutlined, ReadOutlined } from '@ant-design/icons'
+import { FileSearchOutlined, ReadOutlined, TagOutlined } from '@ant-design/icons'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/models'
 import classNames from 'classnames'
 import style from './AboutMe.scss'
 import UserIntroduceSection from './UserIntroduceSection'
+import { DynamicTag } from '@/components'
 
 interface AboutMeProps {
   inDashboard?: boolean
@@ -34,6 +35,11 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
         {inDashboard ? null : (
           <UserIntroduceSection title="Education" icon={<ReadOutlined />}>
             <div>JS in Computer Science from the University of Technology</div>
+          </UserIntroduceSection>
+        )}
+        {inDashboard ? null : (
+          <UserIntroduceSection title="Tags" icon={<TagOutlined />}>
+            <DynamicTag tags={['大长腿', '高富帅', '靓仔']} />
           </UserIntroduceSection>
         )}
         <UserIntroduceSection title="Skills" icon={<FileSearchOutlined />}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons'
+import { GithubOutlined, LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons'
 import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
 
@@ -22,10 +22,19 @@ const DropdownMenu: React.FC<DropdownMenuProps> = (props) => {
           icon: <SettingOutlined />,
         },
         {
+          key: '3',
+          label: (
+            <a href="https://github.com/hanclang/react-admin" target="_blank">
+              项目地址
+            </a>
+          ),
+          icon: <GithubOutlined />,
+        },
+        {
           type: 'divider',
         },
         {
-          key: '3',
+          key: '4',
           label: (
             <a
               onClick={(e) => {
