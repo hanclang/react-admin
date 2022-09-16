@@ -1,5 +1,10 @@
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, createHashHistory } from 'history'
 
-const history = createBrowserHistory({window})
+let history = createBrowserHistory({window})
+
+if (ROUTER_MODE === 'hash') {
+  history = createHashHistory({window})
+}
+
 
 export default history

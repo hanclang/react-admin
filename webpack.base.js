@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -65,7 +66,7 @@ module.exports = {
           priority: -5,
         },
         utilityVendor: {
-          test: /[\\/]node_modules[\\/](lodash|dayjs)[\\/]/,
+          test: /[\\/]node_modules[\\/](lodash|dayjs|axios)[\\/]/,
           name: 'utilVendor',
           priority: -10,
         },
@@ -147,6 +148,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+    }),
+    new webpack.DefinePlugin({
+      ROUTER_MODE: process.env.ROUTER_MODE,
     }),
     new AntdDayjsWebpackPlugin(),
     new WebpackBar(),

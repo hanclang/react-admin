@@ -14,6 +14,7 @@ declare module 'headroom.js' {
 }
 
 declare const process = any
+declare const ROUTER_MODE = any
 declare function require(src: string): any {
 
 }
