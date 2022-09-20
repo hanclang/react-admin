@@ -1,15 +1,15 @@
 import React from 'react'
-import { DashboardOutlined, TableOutlined } from '@ant-design/icons'
+import { DashboardOutlined, TableOutlined, UserOutlined } from '@ant-design/icons'
 import { Navigate } from 'react-router-dom'
 
 import Login from '@/pages/login'
-import Layout from '../layout'
+import Layout from '@/layout'
 import Dashboard from '@/pages/dashboard'
 import NotFoundPage from '@/pages/404'
 import TableList from '@/pages/TableList'
 import List from '@/pages/List'
 import EditTable from '@/pages/EditTable'
-import Profile from '@/pages/profile'
+import ProfileCenter from '@/pages/profile/pages/center'
 
 export type route = {
   path: string
@@ -72,9 +72,20 @@ const routes: route[] = [
       },
       {
         path: 'profile',
-        hidden: true,
-        name: '个人中心',
-        component: <Profile />
+        name: '个人页',
+        icon: <UserOutlined />,
+        children: [
+          {
+            path: 'center',
+            name: '个人中心',
+            component: <ProfileCenter />
+          },
+          {
+            path: 'settings',
+            name: '个人设置',
+            component: <ProfileCenter />
+          }
+        ],
       },
       {
         path: '*',

@@ -1,8 +1,8 @@
 import { Card, Col, List, Row, Tabs } from 'antd'
 import React from 'react'
-import AboutMe from './components/AboutMe'
-import Activity from './components/Activity'
-import Timeline from './components/Timeline'
+import AboutMe from '../../components/AboutMe'
+import Activity from '../../components/Activity'
+import Timeline from '../../components/Timeline'
 const Profile: React.FC = () => {
   return (
     <div className="page">

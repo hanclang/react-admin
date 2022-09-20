@@ -13,12 +13,12 @@ const DropdownMenu: React.FC<DropdownMenuProps> = (props) => {
       items={[
         {
           key: '1',
-          label: <Link to="/profile">个人中心</Link>,
+          label: <Link to="/profile/center">个人中心</Link>,
           icon: <UserOutlined />,
         },
         {
           key: '2',
-          label: <a>个人设置</a>,
+          label: <Link to="/profile/settings">个人设置</Link>,
           icon: <SettingOutlined />,
         },
         {
