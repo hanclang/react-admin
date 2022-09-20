@@ -10,6 +10,7 @@ import TableList from '@/pages/TableList'
 import List from '@/pages/List'
 import EditTable from '@/pages/EditTable'
 import ProfileCenter from '@/pages/profile/pages/center'
+import ProfileSettings from '@/pages/profile/pages/settings'
 
 export type route = {
   path: string
@@ -83,7 +84,7 @@ const routes: route[] = [
           {
             path: 'settings',
             name: '个人设置',
-            component: <ProfileCenter />
+            component: <ProfileSettings />
           }
         ],
       },

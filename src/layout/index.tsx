@@ -43,7 +43,7 @@ const LayoutPage: React.FC = () => {
     <CollapsedContext.Provider value={{ collapsed, setCollapsed }}>
       <Layout>
         <Sider />
-        <Layout>
+        <Layout style={{minHeight: '100vh'}}>
           <Header />
           <AppMain />
         </Layout>
