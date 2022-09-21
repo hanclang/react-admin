@@ -150,7 +150,7 @@ module.exports = {
       chunkFilename: 'css/[name].[contenthash:8].chunk.css',
     }),
     new webpack.DefinePlugin({
-      ROUTER_MODE: process.env.ROUTER_MODE,
+      ROUTER_MODE: JSON.stringify(process.env.ROUTER_MODE),
     }),
     new AntdDayjsWebpackPlugin(),
     new WebpackBar(),
