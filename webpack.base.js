@@ -66,12 +66,12 @@ module.exports = {
           priority: -5,
         },
         utilityVendor: {
-          test: /[\\/]node_modules[\\/](lodash|dayjs|axios)[\\/]/,
+          test: /[\\/]node_modules[\\/](lodash-es|dayjs|axios)[\\/]/,
           name: 'utilVendor',
           priority: -10,
         },
         defaultVendors: {
-          name: 'common',
+          name: 'commonVendor',
           test: /[\\/]node_modules[\\/]/,
           priority: -15,
         },

@@ -9,13 +9,13 @@ const Account: React.FC = () => {
       <List.Item key="taobao" actions={[<a>绑定</a>]}>
         <List.Item.Meta avatar={<TaobaoOutlined className={classNames(styles.taobao, styles.icon)} />} title="绑定淘宝" description="当前未绑定淘宝账号" />
       </List.Item>
-      <List.Item key="taobao" actions={[<a>绑定</a>]}>
+      <List.Item key="wechat" actions={[<a>绑定</a>]}>
         <List.Item.Meta avatar={<WechatOutlined className={classNames(styles.wechat, styles.icon)} />} title="绑定微信" description="当前未绑定微信账号" />
       </List.Item>
-      <List.Item key="taobao" actions={[<a>绑定</a>]}>
+      <List.Item key="alipay" actions={[<a>绑定</a>]}>
         <List.Item.Meta avatar={<AlipayOutlined className={classNames(styles.alipay, styles.icon)} />} title="绑定支付宝" description="当前未绑定支付宝账号" />
       </List.Item>
-      <List.Item key="taobao" actions={[<a>绑定</a>]}>
+      <List.Item key="dingding" actions={[<a>绑定</a>]}>
         <List.Item.Meta avatar={<DingtalkSquareFilled className={classNames(styles.dingding, styles.icon)} />} title="绑定钉钉" description="当前未绑定钉钉账号" />
       </List.Item>
     </List>
