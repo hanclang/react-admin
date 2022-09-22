@@ -4,7 +4,7 @@
 
 [react-admin](https://github.com/hanclang/react-admin) is based on the newest development stack of react and typescript solution, typical templates for enterprise applications, and lots of awesome features. It helps you build large and complex Single-Page Applications. I believe whatever your needs are, this project will help you.
 
-- [Preview](https://hanclang.github.io/login)
+- [Preview](hanclang.github.io/react-admin)
 
 ## Thanks
 - [Ant Design Pro](https://pro.ant.design/)
