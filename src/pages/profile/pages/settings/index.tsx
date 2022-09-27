@@ -5,6 +5,7 @@ import { find } from 'lodash-es'
 import styles from './index.scss'
 import Account from '../../components/Account'
 import Notice from '../../components/Notice'
+import Security from '../../components/Security'
 
 const Settings: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState({
@@ -36,6 +37,8 @@ const Settings: React.FC = () => {
     switch (menuItem.key) {
       case 'account':
         return <Account />
+      case 'security':
+        return <Security />
       case 'notice':
         return <Notice />
 
