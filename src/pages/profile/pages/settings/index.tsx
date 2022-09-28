@@ -6,6 +6,7 @@ import styles from './index.scss'
 import Account from '../../components/Account'
 import Notice from '../../components/Notice'
 import Security from '../../components/Security'
+import Base from '../../components/Base'
 
 const Settings: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState({
@@ -35,6 +36,8 @@ const Settings: React.FC = () => {
   )
   const renderPanel = useCallback((menuItem: typeof activeMenu) => {
     switch (menuItem.key) {
+      case 'base':
+        return <Base />
       case 'account':
         return <Account />
       case 'security':

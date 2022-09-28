@@ -32,7 +32,7 @@ const HeaderComponent: React.FC = () => {
       })}
       <Dropdown overlay={<DropdownMenu logout={() => dispatch(logout())} />} overlayClassName={style.overlay} placement="bottom">
         <Space className={style.name} align="center">
-          <Avatar src={user.avatar} />
+          <Avatar src={user.avatar} alt='avatar' />
           <span>{user.name}</span>
         </Space>
       </Dropdown>
