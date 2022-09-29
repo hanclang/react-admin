@@ -1,8 +1,8 @@
-const Mock = require('mockjs')
-const queryString = require('query-string')
-const users = require('./user.js')
-const lists = require('./list.js')
-const dashboards = require('./dashboard.js')
+import Mock from 'mockjs'
+import queryString from'query-string'
+import users from'./user.js'
+import lists from'./list.js'
+import dashboards from'./dashboard.js'
 
 function param2Obj(url) {
   const query = queryString.parse(decodeURIComponent(url.split('?')[1]))
@@ -10,9 +10,9 @@ function param2Obj(url) {
 }
 
 // require.context('./test', false, /\.test\.js$/);
-const mocks = [...users, ...lists, ...dashboards]
+export const mocks = [...users, ...lists, ...dashboards]
 
-function mockXHR() {
+export function mockXHR() {
   mocks.forEach((item) => {
     Mock.mock(new RegExp(item.url), item.method || 'get', (options) => {
       const { body, type, url } = options
@@ -27,9 +27,4 @@ function mockXHR() {
       return data
     })
   })
-}
-
-module.exports = {
-  mocks,
-  mockXHR
 }

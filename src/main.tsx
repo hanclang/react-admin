@@ -10,12 +10,7 @@ import history from '@/utils/history'
 import 'antd/dist/antd.css'
 import './main.scss'
 
-if (process.env.NODE_ENV === 'production') {
-  const { mockXHR } = require('../mock')
-  mockXHR()
-}
-
-const app: HTMLElement | null = document.querySelector('#app')
+const app: HTMLElement | null = document.querySelector('#root')
 const root = ReactDOM.createRoot(app as HTMLElement)
 
 root.render(

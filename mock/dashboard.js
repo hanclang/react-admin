@@ -1,4 +1,4 @@
-module.exports = [{
+export default [{
   url: '/dashboard/fake_analysis_chart_data',
   method: 'post',
   response: (req) => {

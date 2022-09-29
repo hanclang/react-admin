@@ -1,6 +1,6 @@
 // import Mock from 'mockjs'
 // import queryString from 'query-string'
-const Mock = require('mockjs')
+import Mock from 'mockjs'
 
 const List = []
 const count = 100
@@ -31,7 +31,7 @@ for (let i = 0; i < count; i++) {
     })
   )
 }
-module.exports = [
+export default [
   {
     url: '/list/tableList',
     method: 'post',

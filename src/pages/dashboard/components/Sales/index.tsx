@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from 'react'
-import { Card, Col, DatePicker, Row, Tabs } from 'antd'
+import { Card, Col, Row, Tabs } from 'antd'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
 import type { Dayjs } from 'dayjs'
 import style from './index.scss'
 import Line from '../Line'
 import SalesRank from './SalesRank'
+import { DatePicker } from '@/components'
 
 const { RangePicker } = DatePicker
 

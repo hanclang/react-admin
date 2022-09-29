@@ -21,7 +21,7 @@ const users = {
     name: 'Normal Editor',
   },
 }
-module.exports = [
+export default [
   {
     url: '/user/login',
     method: 'post',
