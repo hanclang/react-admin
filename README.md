@@ -6,6 +6,33 @@
 
 - [Preview](hanclang.github.io/react-admin)
 
+## Getting started
+
+```bash
+# clone the project
+git clone https://github.com/hanclang/react-admin.git
+
+# enter the project directory
+cd react-admin
+
+# install dependency
+npm install
+
+# develop
+npm run dev
+```
+
+This will automatically open http://localhost:3000
+
+## Build
+
+```bash
+
+# build for production environment
+npm run build
+```
+
+
 ## Thanks
 - [Ant Design Pro](https://pro.ant.design/)
 - [vue-element-admin](https://panjiachen.github.io/)
