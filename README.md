@@ -6,6 +6,9 @@
 
 - [Preview](hanclang.github.io/react-admin)
 
+## Branch
+- the branch of vite is build of vite tool, if you want to build with vite pls select the vite branch
+
 ## Getting started
 
 ```bash
