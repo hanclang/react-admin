@@ -7,6 +7,7 @@
 - [Preview](hanclang.github.io/react-admin)
 
 ## Branch
+- the master branch is build of webpack
 - the branch of vite is build of vite tool, if you want to build with vite pls select the vite branch
 
 ## Getting started
