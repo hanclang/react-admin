@@ -1,0 +1,29 @@
+.pageHeader {
+  background-color: #fff !important;
+}
+.content {
+  display: flex;
+  .extra {
+    min-width: 242px;
+    :global {
+      .ant-statistic-title {
+        text-align: right !important;
+      }
+    }
+  }
+}
+.btnGroup {
+  :global {
+    .ant-btn {
+      border-radius: 0;
+      position: relative;
+    }
+    .ant-btn + .ant-btn {
+      margin-left: -1px;
+    }
+    .ant-btn:focus,
+    .ant-btn:hover {
+      z-index: 2;
+    }
+  }
+}
