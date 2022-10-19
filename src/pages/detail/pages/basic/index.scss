@@ -1,6 +1,12 @@
 .pageHeader {
   background-color: #fff !important;
 }
+.pageContent {
+  margin: 24px;
+  .gap {
+    height: 24px;
+  }
+}
 .content {
   display: flex;
   .extra {
