@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardOutlined, TableOutlined, UserOutlined } from '@ant-design/icons'
+import { DashboardOutlined, ProfileOutlined, TableOutlined, UserOutlined } from '@ant-design/icons'
 import { Navigate } from 'react-router-dom'
 
 import Login from '@/pages/login'
@@ -11,6 +11,7 @@ import List from '@/pages/List'
 import EditTable from '@/pages/EditTable'
 import ProfileCenter from '@/pages/profile/pages/center'
 import ProfileSettings from '@/pages/profile/pages/settings'
+import DetailBasic from '@/pages/detail/pages/basic'
 
 export type route = {
   path: string
@@ -70,6 +71,18 @@ const routes: route[] = [
             component: <EditTable />,
           },
         ],
+      },
+      {
+        path: 'detail',
+        name: '详情页',
+        icon: <ProfileOutlined />,
+        children: [
+          {
+            path: 'basic',
+            name: '基础详情页',
+            component: <DetailBasic />
+          }
+        ]
       },
       {
         path: 'profile',
